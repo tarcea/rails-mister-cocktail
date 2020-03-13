@@ -13,8 +13,6 @@ Cocktail.create(name:"Cuba Libre")
 Cocktail.create(name:"Mojito")
 Cocktail.create(name:"Margarita")
 
-
-
 require 'json'
 require 'open-uri'
 
