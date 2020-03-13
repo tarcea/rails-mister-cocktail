@@ -75,11 +75,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
+   production:
+    url: <%= ENV['postgres://wsvnrgqggjgjgh:adfc023a4eda18e3acfd36c20c3d282520b0f766a95cf8e7f26f89e0cd2fa960@ec2-54-75-246-118.eu-west-1.compute.amazonaws.com:5432/d45tqg1gduuv5r'] %>
+
 production:
   <<: *default
   database: rails-mister-cocktail_production
   username: rails-mister-cocktail
-  password: <%= ENV['RAILS-MISTER-COCKTAIL_DATABASE_PASSWORD'] %>
+  password: <%= ENV['adfc023a4eda18e3acfd36c20c3d282520b0f766a95cf8e7f26f89e0cd2fa960'] %>
