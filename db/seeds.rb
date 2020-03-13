@@ -13,6 +13,3 @@ Cocktail.create(name:"Cuba Libre")
 Cocktail.create(name:"Mojito")
 Cocktail.create(name:"Margarita")
 
-Dose.create(description: { ingredient: "lemon", cocktail: "Mojito"} )
-Dose.create(description: { ingredient: "ice", cocktail: "Margarita"} )
-Dose.create(description: {  ingredient: "mint leaves", cocktail: "Cuba Libre"} )

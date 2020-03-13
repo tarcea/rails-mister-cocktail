@@ -14,9 +14,16 @@ class DosesController < ApplicationController
     @dose.cocktail = @cocktail
     if @dose.save
       redirect_to @cocktail, notice: 'successfully created.'
+      # raise
     else
       render :new
     end
+  end
+
+  def destroy
+    @dose = Dose.find(params[:id])
+    @dose.destroy
+    redirect_to @dose.cocktail
   end
 
   private
@@ -24,5 +31,4 @@ class DosesController < ApplicationController
   def dose_params
     params.require(:dose).permit(:description, :ingredient_id)
   end
-
 end

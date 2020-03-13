@@ -9,6 +9,7 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
+    # raise
   end
 
   def create
@@ -19,10 +20,11 @@ class CocktailsController < ApplicationController
       render :new
     end
   end
-
   def destroy
-
-  end
+    # @cocktail.doses.each do |dose|
+    #   dose.delete
+    end
+    # @cocktail.doses(@cocktail)
 
   private
 
