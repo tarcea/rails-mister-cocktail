@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container justify-content-center">
 <div class="border-top">
   <div class="row justify-content-center">
     <div class="col-6">
       <h1><%= @cocktail.name %></h1>
       <br>
-      <%= cl_image_tag("ag3awvzzau8wq8evbovd",width: 400, height: 300, crop: :fill) %>
+      <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
       <br>
       <% @cocktail.doses.each do |dose| %>
         <strong><%= dose.description%></strong> <%= dose.ingredient.name %>
@@ -12,7 +12,6 @@
       <br>
       <% end %>
       <br>
-
       <%= link_to 'Back', root_path %> |
       <%= link_to 'Create dose', new_cocktail_dose_path(@cocktail) %>
       </div>

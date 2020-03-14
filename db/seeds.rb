@@ -9,9 +9,8 @@
 # Ingredient.create(name: "ice")
 # Ingredient.create(name: "mint leaves")
 
-Cocktail.create(name:"Cuba Libre")
-Cocktail.create(name:"Mojito")
-Cocktail.create(name:"Margarita")
+
+Cocktail.destroy_all if Rails.env.development?
 
 require 'json'
 require 'open-uri'
