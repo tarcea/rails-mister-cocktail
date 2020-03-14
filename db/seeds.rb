@@ -10,7 +10,7 @@
 # Ingredient.create(name: "mint leaves")
 
 
-Cocktail.destroy_all if Rails.env.development?
+# Cocktail.destroy_all if Rails.env.development?
 
 require 'json'
 require 'open-uri'
