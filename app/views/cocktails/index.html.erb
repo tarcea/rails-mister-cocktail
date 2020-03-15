@@ -6,7 +6,11 @@
         <% @cocktails.each do |cocktail| %>
         <ul class='list-inline'>
         <li><%= link_to cocktail.name, cocktail %> </li>
+        <% if cocktail.photo.attached? %>
         <li><%= cl_image_tag cocktail.photo.key, height: 200, width: 200, crop: :fill %></li>
+        <% else %>
+        <li><%= cl_image_tag("rbnq62rdrevbimxqa2af", width: 200, height: 200, crop: :fill) %></li>
+        <% end %>
         </ul>
         <% end %>
         <%= link_to "New Cocktail", new_cocktail_path, class: "btn btn-primary"%>

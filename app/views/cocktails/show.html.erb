@@ -4,7 +4,11 @@
     <div class="col-6">
       <h1><%= @cocktail.name %></h1>
       <br>
-      <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if @cocktail.photo.attached? %>
+      <%= cl_image_tag @cocktail.photo.key, height: 400, width: 400, crop: :fill %>
+      <% else %>
+      <%= cl_image_tag("rbnq62rdrevbimxqa2af", width: 400, height: 400, crop: :fill) %>
+      <% end %>
       <br>
       <% @cocktail.doses.each do |dose| %>
         <strong><%= dose.description%></strong> <%= dose.ingredient.name %>
