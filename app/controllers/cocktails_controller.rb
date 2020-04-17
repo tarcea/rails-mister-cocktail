@@ -22,10 +22,11 @@ class CocktailsController < ApplicationController
     end
   end
   def destroy
-    # @cocktail.doses.each do |dose|
-    #   dose.delete
+    @cocktail = Cocktail.find(params[:id])
+    @cocktail.destroy
+    redirect_to root_path
     end
-    # @cocktail.doses(@cocktail)
+
 
   private
 
