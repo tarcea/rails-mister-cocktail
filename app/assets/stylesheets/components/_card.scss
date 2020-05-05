@@ -35,6 +35,13 @@
   right: 16px;
   bottom: 16px;
 }
+a.bubu {
+    color: white;
+    text-decoration: none;
+  }
+  a.bubu:hover {
+    color: pink;
+  }
 
 
 @media(max-width: 992px) {

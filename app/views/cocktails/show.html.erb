@@ -4,7 +4,8 @@
       <% else %>
       <% path = cl_image_path("rbnq62rdrevbimxqa2af", width: 400, height: 400, crop: :fill) %>
       <% end %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= path %>);">
+      <!--  linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= path %>);">
   <div class="container">
     <div class="cocktail-name">
     <h1><%= @cocktail.name %></h1>
@@ -22,7 +23,7 @@
       <%= link_to "Edit", "#" %> |
       <%= link_to '<i class="fas fa-trash"></i>'.html_safe, @cocktail_path, method: :delete, data: { confirm: 'Are you sure?', class: "delete-button" }%>
     </div>
-    <%= link_to "New Cocktail", new_cocktail_path, class: "btn btn-primary bubu"%>
+    <%= link_to "New Cocktail", new_cocktail_path, class: "bubu"%>
   </div>
 </div>
 </div>
