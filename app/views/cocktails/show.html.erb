@@ -1,5 +1,4 @@
 <div class="container">
-
 <% if @cocktail.photo.attached? %>
       <% path = cl_image_path @cocktail.photo.key%>
       <% else %>
@@ -7,7 +6,7 @@
       <% end %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= path %>);">
   <div class="container">
-    <div class="cocktail_name">
+    <div class="cocktail-name">
     <h1><%= @cocktail.name %></h1>
     <p>
       <% @cocktail.doses.each do |dose| %>
