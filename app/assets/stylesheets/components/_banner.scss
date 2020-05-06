@@ -1,6 +1,7 @@
 
 
 .banner {
+  height: 100vh;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
@@ -31,7 +32,7 @@
   }
 
   a:hover {
-    color: pink;
+    color: black;
   }
 }
 
@@ -45,6 +46,16 @@
   }
 
   a:hover {
-    color: pink;
+    color: black;
   }
+  ul {
+    color: white;
+  }
+
+  ul > li {
+    margin: -8px 0px -1.25rem;
+    line-height: 16px;
+  }
+
 }
+

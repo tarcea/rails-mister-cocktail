@@ -11,8 +11,12 @@
     <h1><%= @cocktail.name %></h1>
     <p>
       <% @cocktail.doses.each do |dose| %>
-        <%= dose.ingredient.name %> -- <%= dose.description%>
-        <%= link_to '<i class="fas fa-trash"></i>'.html_safe, dose_path(dose), method: :delete, data: { confirm: 'Are you sure?', class: "delete-button" }%>
+      <ul>
+        <li>
+          <%= dose.description%>  <%= dose.ingredient.name.capitalize %> &nbsp;
+          <%= link_to '<i class="fas fa-trash"></i>'.html_safe, dose_path(dose), method: :delete, data: { confirm: 'Are you sure?', class: "delete-button" }%>
+        </li>
+      </ul>
       <br>
       <% end %>
     </p>

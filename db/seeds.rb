@@ -9,12 +9,12 @@
 # Ingredient.create(name: "ice")
 # Ingredient.create(name: "mint leaves")
 
-
 # Cocktail.destroy_all if Rails.env.development?
 
 require 'json'
 require 'open-uri'
-
+puts 'stard seeding ingredients'
+Ingredient.destroy.all if Rails.env.development?
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredient_bulk = open(url).read
 drinks = JSON.parse(ingredient_bulk)
@@ -25,3 +25,8 @@ drinks.each do |key1, drink|
     end
   end
 end
+puts 'ingrdients seeds DONE'
+
+puts 'stard seeding cocktails'
+Cocktail.create(name: "")
+puts 'cocktail seeds DONE'
