@@ -31,6 +31,7 @@ end
 puts 'ingrdients seeds DONE'
 
 puts 'stard seeding cocktails'
+# array with names from www.liquor.com
 cocktails = ['cosmopolitan', 'traditional-mai-tai', 'a-la-louisiane',
              'pimms-cup', 'spicy-margarita', 'mojito', 'mint-julep',
              'reggae-rum-punch', 'ginger-fever-punch', 'toblerone',
@@ -56,7 +57,8 @@ cocktails.each do |cocktail|
   cocktail.photo.attach(io: file, filename: owner, content_type: 'image/png/jpg')
   ing = html_doc.search('.ingredient-list')
   ing.search('.simple-list__item').each do |ingredient|
-    Dose.create!(cocktail: cocktail, description: ingredient.text.strip, ingredient: Ingredient.new(name: ''))
+    ingredient_text = ingredient.text.strip
+    Dose.create!(cocktail: cocktail, description: ingredient_text, ingredient: Ingredient.new(name: ''))
   end
 end
 puts 'cocktail seeds DONE'
