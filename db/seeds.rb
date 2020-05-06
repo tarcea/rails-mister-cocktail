@@ -36,8 +36,15 @@ cocktails = ['cosmopolitan', 'traditional-mai-tai', 'a-la-louisiane',
              'pimms-cup', 'spicy-margarita', 'mojito', 'mint-julep',
              'reggae-rum-punch', 'ginger-fever-punch', 'toblerone',
              'la-violetta', 'irish-coffee-2', 'bourbon-strawberry-iced-tea',
-             'long-island-iced-tea', 'bourbon-old-fashioned']
-cocktails.each do |cocktail|
+             'long-island-iced-tea', 'bourbon-old-fashioned', 'pisco-sour',
+             'vodka-soda', 'gin-rickey', 'vodka-gimlet', 'tom-yum-on-a-rock',
+             'apple-cranberry-moscow-mule', 'cbd-moscow-mule',
+             'summerthyme-screwdriver', 'sparkling-watermelon-punch',
+             'cbd-spritz', 'amaretto-sour', 'whiskey-smash', 'manhattan-2',
+             'tom-collins-2', 'the-irish-car-bomb', 'classic-bloody-mary',
+             'rum-and-smoke', 'painkiller-2', 'suffering-bastard',
+             'cbd-gin-and-tonic', 'rosemary-mezcal-negroni', 'bloody-caesar']
+cocktails.shuffle.each do |cocktail|
   url = "https://www.liquor.com/recipes/#{cocktail}/"
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
