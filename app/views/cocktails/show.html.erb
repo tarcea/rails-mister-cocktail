@@ -5,21 +5,31 @@
       <% path = cl_image_path("rbnq62rdrevbimxqa2af", width: 400, height: 400, crop: :fill) %>
       <% end %>
       <!--  linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), -->
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= path %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= path %>);">
   <div class="container">
     <div class="cocktail-name">
     <h1><%= @cocktail.name %></h1>
     <p>
       <% @cocktail.doses.each do |dose| %>
+       <small>
       <ul>
         <li>
-          <%= dose.description%>  <%= dose.ingredient.name.capitalize %> &nbsp;
+          <%= dose.description%> <%= dose.ingredient.name.capitalize %>  &nbsp;
           <%= link_to '<i class="fas fa-trash"></i>'.html_safe, dose_path(dose), method: :delete, data: { confirm: 'Are you sure?', class: "delete-button" }%>
         </li>
       </ul>
+      </small>
       <br>
       <% end %>
     </p>
+    </div>
+    <div class="steps">
+      <h2>Steps: </h2>
+      <small>
+      <% @cocktail.steps.each do |step| %>
+        <li><%= step %></li>
+      <% end %>
+      </small>
     </div>
     <div class="menu">
     <%= link_to 'Back', root_path %> |
@@ -30,4 +40,5 @@
     <%= link_to "New Cocktail", new_cocktail_path, class: "bubu"%>
   </div>
 </div>
+<%= @cocktail.photo.filename %>
 </div>

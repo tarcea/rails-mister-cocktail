@@ -9,12 +9,15 @@
 # Ingredient.create(name: "ice")
 # Ingredient.create(name: "mint leaves")
 
-# Cocktail.destroy_all if Rails.env.development?
+Cocktail.destroy_all if Rails.env.development?
+Dose.destroy_all if Rails.env.development?
 
 require 'json'
 require 'open-uri'
+require 'nokogiri'
+
 puts 'stard seeding ingredients'
-Ingredient.destroy.all if Rails.env.development?
+Ingredient.destroy_all if Rails.env.development?
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredient_bulk = open(url).read
 drinks = JSON.parse(ingredient_bulk)
@@ -28,5 +31,32 @@ end
 puts 'ingrdients seeds DONE'
 
 puts 'stard seeding cocktails'
-Cocktail.create(name: "")
+cocktails = ['cosmopolitan', 'traditional-mai-tai', 'a-la-louisiane',
+             'pimms-cup', 'spicy-margarita', 'mojito', 'mint-julep',
+             'reggae-rum-punch', 'ginger-fever-punch', 'toblerone',
+             'la-violetta', 'irish-coffee-2', 'bourbon-strawberry-iced-tea',
+             'long-island-iced-tea', 'bourbon-old-fashioned']
+cocktails.each do |cocktail|
+  url = "https://www.liquor.com/recipes/#{cocktail}/"
+  html_file = open(url).read
+  html_doc = Nokogiri::HTML(html_file)
+  image = html_doc.search('.primary-image').attribute('src').nil? ? nil : html_doc.search('.primary-image').attribute('src').value
+  title = html_doc.search('.heading__title', 'h1').text.strip
+  owner = html_doc.search('.figure__caption-owner').text.strip
+  ste = html_doc.search('.mntl-sc-block-group--LI')
+  count = 0
+  steps_all = []
+  ste.each do |step|
+    count += 1
+    steps_all << "#{count}. #{step.text.strip}"
+  end
+
+  file = URI.open(image)
+  cocktail = Cocktail.create!(name: title, steps: steps_all)
+  cocktail.photo.attach(io: file, filename: owner, content_type: 'image/png/jpg')
+  ing = html_doc.search('.ingredient-list')
+  ing.search('.simple-list__item').each do |ingredient|
+    Dose.create!(cocktail: cocktail, description: ingredient.text.strip, ingredient: Ingredient.new(name: ''))
+  end
+end
 puts 'cocktail seeds DONE'

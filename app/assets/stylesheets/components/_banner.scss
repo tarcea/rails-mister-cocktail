@@ -54,8 +54,17 @@
 
   ul > li {
     margin: -8px 0px -1.25rem;
-    line-height: 16px;
+    line-height: 8px;
   }
 
+}
+
+.steps {
+  color: white;
+  height: 50vh;
+  width: 50vw;
+  position: absolute;
+  right: 16px;
+  top: 50vh;
 }
 
