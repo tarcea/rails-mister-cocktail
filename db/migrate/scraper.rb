@@ -2,20 +2,19 @@ require 'json'
 require 'open-uri'
 require 'nokogiri'
 
-cocktail = "bourbon-old-fashioned"
-url = "https://www.liquor.com/recipes/#{cocktail}/"
+# cocktail = "bourbon-old-fashioned"
+# url = "https://www.liquor.com/recipes/#{cocktail}/"
 
-html_file = open(url).read
-html_doc = Nokogiri::HTML(html_file)
+# html_file = open(url).read
+# html_doc = Nokogiri::HTML(html_file)
 
 # image_url = html_doc.search('.primary-image').attribute('src').nil? ? nil : html_doc.search('.primary-image').attribute('src').value
 # title = html_doc.search('.heading__title', 'h1').text.strip
 # owner = html_doc.search('.figure__caption-owner').text.strip
-ing = html_doc.search('.ingredient-list')
-ing.search('.simple-list__item').each do |ingredient|
-  puts ingredient.text.strip
-
-end
+# ing = html_doc.search('.ingredient-list')
+# ing.search('.simple-list__item').each do |ingredient|
+#   puts ingredient.text.strip
+# end
 
 # ste = html_doc.search('.mntl-sc-block-group--LI')
 # count = 0

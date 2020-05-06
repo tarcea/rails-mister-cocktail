@@ -45,6 +45,7 @@ cocktails = ['cosmopolitan', 'traditional-mai-tai', 'a-la-louisiane',
              'rum-and-smoke', 'painkiller-2', 'suffering-bastard',
              'cbd-gin-and-tonic', 'rosemary-mezcal-negroni', 'bloody-caesar']
 cocktails.shuffle.each do |cocktail|
+  # start scraping from liquor.com
   url = "https://www.liquor.com/recipes/#{cocktail}/"
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
@@ -58,7 +59,6 @@ cocktails.shuffle.each do |cocktail|
     count += 1
     steps_all << "#{count}. #{step.text.strip}"
   end
-
   file = URI.open(image)
   cocktail = Cocktail.create!(name: title, steps: steps_all)
   cocktail.photo.attach(io: file, filename: owner, content_type: 'image/png/jpg')
