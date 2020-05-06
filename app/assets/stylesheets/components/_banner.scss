@@ -1,7 +1,8 @@
 
 
 .banner {
-  height: 100vh;
+  overflow: auto;
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
@@ -38,7 +39,7 @@
 
 .cocktail-name {
   position: absolute;
-  left: 16px;
+  left: 32px;
   top: 16px;
   a {
     text-decoration: none;
@@ -52,15 +53,15 @@
     color: white;
   }
   // height: 50vh;
-  // width: 50vw;
+  max-width: 80vw;
 }
 
 .steps {
   color: white;
   height: 50vh;
-  width: 50vw;
+  max-width: 75vw;
   position: absolute;
-  right: 16px;
+  left: 32px;
   top: 40vh;
 }
 
