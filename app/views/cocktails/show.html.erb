@@ -31,7 +31,7 @@
       </div>
 
       <div class="menu">
-        <%= link_to 'Back', root_path %> |
+        <%= link_to 'Back', 'javascript:history.go(-1);' %> |
         <%= link_to 'Create dose', new_cocktail_dose_path(@cocktail) %> |
         <%= link_to "Edit", "#" %> |
         <%= link_to '<i class="fas fa-trash"></i>'.html_safe, @cocktail_path, method: :delete, data: { confirm: 'Are you sure?', class: "delete-button" }%>
