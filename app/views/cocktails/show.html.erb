@@ -1,6 +1,6 @@
 <div class="container">
   <% if @cocktail.photo.attached? %>
-        <% path = cl_image_path @cocktail.photo.key%>
+        <% path = cl_image_path @cocktail.photo.key, width: 400, height: 400, crop: :fill %>
         <% else %>
         <% path = cl_image_path("rbnq62rdrevbimxqa2af", width: 400, height: 400, crop: :fill) %>
   <% end %>
@@ -14,7 +14,7 @@
           <% @cocktail.doses.each do |dose| %>
             <li>
               <%= dose.description %> <%= dose.ingredient.name %>  &nbsp;
-              <%= link_to '<i class="fas fa-trash"></i>'.html_safe, dose_path(dose), method: :delete, data: { confirm: 'Are you sure?', class: "delete-button" }%>
+              <%= link_to '<i class="fas fa-trash"></i>'.html_safe, dose_path(dose), method: :delete, data: { confirm: 'Are you sure?', class: "delete-button" } %>
             </li>
           <% end %>
         </p>
