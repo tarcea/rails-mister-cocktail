@@ -38,5 +38,45 @@ require 'nokogiri'
 #   # puts element.text.strip
 #   # puts element.attribute('src').value
 # end
+# food
+recipes = []
+url = "https://www.annabelkarmel.com/recipes/"
+
+html_file = open(url).read
+html_doc = Nokogiri::HTML(html_file)
+html_doc.search('.entry-title').each do |title|
+  recipe_title = title.text.strip
+  recipe_url = title.first_element_child.attribute('href')
+  recipe_file = open(recipe_url).read
+  recipe_doc = Nokogiri::HTML(recipe_file)
+  recipe_doc.search('.has-dark-blue-color').each do |dd|
+  recipe_typ = dd.text.strip
+  end
+  recipe_doc.search('.recipes-icons').each do |ee|
+    recipe_details = ee.text.strip
+  end
+  recipe_doc.search('.columns').each do |ff|
+    recipe_ingredients = ff.text.strip
+  end
+  recipe_doc.search('.padding-horizontal-large').each do |gg|
+    recipe_methodes = gg.first_element_child
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
